@@ -5,3 +5,5 @@
 * spring.datasource.url=jdbc:mysql://localhost/db_prueba_tecnica?allowPublicKeyRetrieval=true&useSSL=false
 * spring.datasource.username=root
 * spring.datasource.password=meineko14
+
+* Base de datos: Mysql
