@@ -66,7 +66,7 @@ public class AutorRestController {
 		try {
 			autor = autorService.findById(id);
 			
-		}catch(DataAccessException e) {
+		}catch(RuntimeException e) {
 			response.put("mensaje", "error al realizar la consulta en la base de datos");
 			response.put("ok", false);
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);

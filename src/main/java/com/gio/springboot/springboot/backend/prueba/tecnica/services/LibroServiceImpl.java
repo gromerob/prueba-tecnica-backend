@@ -43,7 +43,7 @@ public class LibroServiceImpl implements ILibroService {
 	@Override
 	public List<Libro> findByNombre(String term) {
 		// TODO Auto-generated method stub
-		return null;
+		return libroRepository.findByNombre(term);
 	}
 
 }
