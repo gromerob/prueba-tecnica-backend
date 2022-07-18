@@ -32,11 +32,11 @@ public class Autor implements Serializable {
 	
 	@Column(nullable = false, unique = false)
 	@NotEmpty
-	@Size(min = 5, message = "nombre debe tener minimo 6 caracteres")
+	@Size(min = 5, message = "debe tener minimo 5 caracteres")
 	private String nombre;
 	
 	@NotEmpty
-	@Size(min = 5, message = "apellido debe tener minimo 8 caracteres")
+	@Size(min = 4, message = "debe tener minimo 4 caracteres")
 	@Column(nullable = false, unique = false)
 	private String apellido;
 	

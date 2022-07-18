@@ -36,14 +36,14 @@ public class Libro implements Serializable {
 	
 	@Column(nullable = false, unique = false)
 	@NotEmpty
-	@Size(min = 5 , message = "titulo debe tener minimo 6 caracteres")
+	@Size(min = 5 , message = "debe tener minimo 6 caracteres")
 	private String titulo;
 	
 	@Column(nullable = false, unique = false)
 	@NotNull
-	@Positive(message = "el precio debe ser positivo")
+	@Positive(message = "debe ser positivo")
 	@Min(value = 500, message = "el minimo del libro debe ser $500")
-	@Max(value = 1000000, message = "Un libro no puedo costar mas de $1.000.000")
+	@Max(value = 1000000, message = "no puedo costar mas de $1.000.000")
 	private int  precio;
 	
 	@JsonIgnoreProperties(value = {"libros","hibernateLazyInitializer","handler"}, allowSetters = true)
