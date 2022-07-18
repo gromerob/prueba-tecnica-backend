@@ -120,6 +120,23 @@ public class AutorControllerTest {
 	}
 	
 	@Test
+	void indexTestNoValido() throws Exception {
+		// given
+
+		when(autorService.findAll()).thenReturn(null);
+		
+		// when
+		mvc.perform(get("/tecnica/autores").contentType(MediaType.APPLICATION_JSON))
+		//then
+		.andExpect(status().isNotFound())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+		.andExpect(jsonPath("$.ok").value(false))
+		.andExpect(jsonPath("$.mensaje").value("No se encontraron autores en la base de datos"));
+		
+		verify(autorService).findAll();
+	}
+	
+	@Test
 	void createAutorTest() throws  Exception {
 		
 		//Given

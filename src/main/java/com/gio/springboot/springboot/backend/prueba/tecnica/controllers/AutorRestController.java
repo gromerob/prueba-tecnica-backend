@@ -51,6 +51,15 @@ public class AutorRestController {
 		
 		}
 		
+		if(autores == null) {
+			response.put("ok", false);
+			response.put("mensaje", "No se encontraron autores en la base de datos");
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		
+		
+		
+		
 		response.put("ok", true);
 		response.put("autores",autores);
 		

@@ -53,6 +53,14 @@ public class LibroRestController {
 		
 		}
 		
+		
+		if(libros == null) {
+			response.put("ok", false);
+			response.put("mensaje", "No se encontraron libros en la base de datos");
+			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.NOT_FOUND);
+		}
+		
+		
 		response.put("ok", true);
 		response.put("libros",libros);
 		

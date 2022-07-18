@@ -10,8 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,12 +34,16 @@ public class Libro implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
 	@Column(nullable = false, unique = false)
+	@NotEmpty
+	@Size(min = 5 , message = "titulo debe tener minimo 6 caracteres")
 	private String titulo;
 	
-	@NotNull
 	@Column(nullable = false, unique = false)
+	@NotNull
+	@Positive(message = "el precio debe ser positivo")
+	@Min(value = 500, message = "el minimo del libro debe ser $500")
+	@Max(value = 1000000, message = "Un libro no puedo costar mas de $1.000.000")
 	private int  precio;
 	
 	@JsonIgnoreProperties(value = {"libros","hibernateLazyInitializer","handler"}, allowSetters = true)

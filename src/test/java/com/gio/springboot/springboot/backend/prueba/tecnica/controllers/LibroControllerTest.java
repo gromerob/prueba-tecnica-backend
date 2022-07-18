@@ -126,6 +126,23 @@ public class LibroControllerTest {
 	}
 	
 	@Test
+	void indexTestNoValido() throws Exception {
+		// given
+
+		when(libroService.findAll()).thenReturn(null);
+		
+		// when
+		mvc.perform(get("/tecnica/libros").contentType(MediaType.APPLICATION_JSON))
+		//then
+		.andExpect(status().isNotFound())
+		.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+		.andExpect(jsonPath("$.ok").value(false))
+		.andExpect(jsonPath("$.mensaje").value("No se encontraron libros en la base de datos"));
+		
+		verify(libroService).findAll();
+	}
+	
+	@Test
 	void createLibroTest() throws  Exception {
 		
 		//Given

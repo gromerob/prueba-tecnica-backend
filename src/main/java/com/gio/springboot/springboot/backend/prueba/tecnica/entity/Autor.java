@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -29,11 +30,13 @@ public class Autor implements Serializable {
 	private Long id;
 	
 	
-	@NotEmpty
 	@Column(nullable = false, unique = false)
+	@NotEmpty
+	@Size(min = 5, message = "nombre debe tener minimo 6 caracteres")
 	private String nombre;
 	
 	@NotEmpty
+	@Size(min = 5, message = "apellido debe tener minimo 8 caracteres")
 	@Column(nullable = false, unique = false)
 	private String apellido;
 	
