@@ -6,4 +6,4 @@
 * spring.datasource.username=root
 * spring.datasource.password=meineko14
 
-* Base de datos: Mysql
+* Base de datos: Mysql-h2
